@@ -5,10 +5,10 @@ $err = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Name Validation
-    if (checkRequiredField('name')) {
-        $name = trim($_POST['name']);
+    if (checkRequiredField('title')) {
+        $title = trim($_POST['title']);
     } else {
-        $err['name'] = 'Enter name';
+        $err['title'] = 'Enter title';
     }
 
     // Rank Validation
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // If no errors, add record
     if (count($err) == 0) {
-        if (addCategory($name, $duration, $status)) {
+        if (addCategory($title, $duration, $status)) {
             $err['success'] = 'Category added successfully';
         } else {
             $err['failed'] = 'Category addition failed';
@@ -77,9 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <fieldset>
             <legend>Add Category Information</legend>
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" class="form-control">
-                <?php echo displayErrorMessage($err, 'name'); ?>
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control">
+                <?php echo displayErrorMessage($err, 'title'); ?>
             </div>
             <div class="form-group">
                 <label for="duration">duration</label>

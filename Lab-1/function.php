@@ -38,7 +38,7 @@ function displaySuccessMessage($error,$index){
 function addCategory($t,$d,$s){
     try {
         $cdate = date('Y-m-d H:i:s');
-        $connect = new mysqli('localhost','root','','q33');
+        $connect = new mysqli('localhost','root','','aarya_20');
         $sql = "insert into courses( title, duration,  status, created_at) values ('$t',$d,$s,'$cdate')";
         $connect->query($sql);
         if ($connect->insert_id > 0 && $connect->affected_rows == 1) {
@@ -53,7 +53,7 @@ function addCategory($t,$d,$s){
 function getAllBookCategory(){
     try {
         $cdate = date('Y-m-d H:i:s');
-        $connect = new mysqli('localhost','root','','q33');
+        $connect = new mysqli('localhost','root','','aarya_20');
         $sql = "select * from courses";
         $result = $connect->query($sql);
         $data = [];
@@ -72,7 +72,7 @@ function getAllBookCategory(){
 function getBookCategoryById($id){
     try {
         $cdate = date('Y-m-d H:i:s');
-        $connect = new mysqli('localhost','root','','q33');
+        $connect = new mysqli('localhost','root','','aarya_20');
         $sql = "select * from courses where id=$id";
         $result = $connect->query($sql);
         if ($result->num_rows == 1) {
@@ -87,7 +87,7 @@ function getBookCategoryById($id){
 function getStudentById($id){
     try {
         $cdate = date('Y-m-d H:i:s');
-        $connect = new mysqli('localhost','root','','q33');
+        $connect = new mysqli('localhost','root','','aarya_20');
         $sql = "select * from students where id=$id";
         $result = $connect->query($sql);
         if ($result->num_rows == 1) {
@@ -100,7 +100,7 @@ function getStudentById($id){
     }
 }
 function getAllCourses() {
-    $connect = new mysqli('localhost','root','','q33');
+    $connect = new mysqli('localhost','root','','aarya_20');
     $sql = "SELECT id FROM courses WHERE status = 1";
     $result = mysqli_query($connect, $sql);
     
@@ -110,7 +110,7 @@ function getAllCourses() {
     return false;
 }
 function getAllStudents() {
-    $connect = new mysqli('localhost','root','','q33');
+    $connect = new mysqli('localhost','root','','aarya_20');
     $sql = "SELECT * FROM students WHERE status = 1";
     $result = mysqli_query($connect, $sql);
     
@@ -123,7 +123,7 @@ function getAllStudents() {
 
 function deleteCategory($id){
     try {
-        $connect = new mysqli('localhost','root','','q33');
+        $connect = new mysqli('localhost','root','','aarya_20');
         $sql = "delete from courses where id=$id";
         $connect->query($sql);
         if ($connect->affected_rows == 1) {
@@ -138,7 +138,7 @@ function deleteCategory($id){
 
 function deleteStudent($id){
     try {
-        $connect = new mysqli('localhost','root','','q33');
+        $connect = new mysqli('localhost','root','','aarya_20');
         $sql = "delete from students where id=$id";
         $connect->query($sql);
         if ($connect->affected_rows == 1) {
@@ -154,7 +154,7 @@ function deleteStudent($id){
 function updateCategory($i,$t,$d,$s){
     try {
         $ud = date('Y-m-d H:i:s');
-        $connect = new mysqli('localhost','root','','q33');
+        $connect = new mysqli('localhost','root','','aarya_20');
         $sql = "update courses set title='$t',duration='$d',status='$s',updated_at='$ud' where id=$i";
         $connect->query($sql);
         if ($connect->affected_rows == 1) {
@@ -169,7 +169,7 @@ function updateCategory($i,$t,$d,$s){
 function updateStudent($i,$n,$c,$f,$r,$p,$a,$d,$s){
     try {
         $ud = date('Y-m-d H:i:s');
-        $connect = new mysqli('localhost','root','','q33');
+        $connect = new mysqli('localhost','root','','aarya_20');
         $sql = "update students set name='$n',course_id='$c',fee='$f',rollno='$r',phone='$p',address='$a',dob='$d',status='$s',updated_at='$ud' where id=$i";
         $connect->query($sql);
         if ($connect->affected_rows == 1) {
@@ -197,7 +197,7 @@ function checkLogin(){
 
 function addStudent($name, $course_id, $fee, $rollno, $phone, $address, $dob, $status) {
 
-    $conn = mysqli_connect('localhost', 'root', '', 'q33');
+    $conn = mysqli_connect('localhost', 'root', '', 'aarya_20');
     $cdate = date('Y-m-d H:i:s');
     $sql = "INSERT INTO students (name, course_id, fee, rollno, phone, address, dob, status,created_at) 
             VALUES ('$name', '$course_id', '$fee', '$rollno', '$phone', '$address', '$dob', '$status', '$cdate')";
